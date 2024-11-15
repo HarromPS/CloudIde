@@ -36,7 +36,7 @@ const UserSchema = new Schema(
         }
     },
     {
-        collection: "user-data" // collection name
+        collection: "user_data" // collection name
     }   
 );
 

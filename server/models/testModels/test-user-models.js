@@ -1,26 +1,29 @@
-// using mongoose a middle ware for mongodb and nodejs
-
 import mongoose from "mongoose";
-const {Schema} = mongoose;    // Destructure Schema directly from mongoose
+const { Schema } = mongoose;    // Destructure Schema directly from mongoose
 
 // user schema
 const TestUserSchema = new Schema(
     {
-        username: {
-            type:String,
-            required: true
+        author: {
+            type: String,
+            index: true
         },
-        password:{
-            type:String,
-            required:true
+        username: {
+            type: String,
+            required: true,
+            unique: true
+        },
+        password: {
+            type: String,
+            required: true
         }
     },
     {
-        collection: "test-data" // collection name
+        collection: "test_data" // collection name
     }   
 );
 
-const TestUser = mongoose.model('Test',TestUserSchema); // model name should be capitalized
-// User.createIndexes();   // email as primary key
+// Create the model with a singular name
+const TestUser = mongoose.model('TestUser', TestUserSchema); // Use 'TestUser' instead of 'test-data'
 
 export default TestUser;
