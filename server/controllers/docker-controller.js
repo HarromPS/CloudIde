@@ -1,6 +1,7 @@
 import Dockerode from "dockerode";
 import path from "path";
 import fs from "fs";
+import { getAPort } from "../utilities/generate_port.js";
 import { PORT_TO_CONTAINER, CONTAINER_TO_PORT } from "../server.mjs";
 import dotenv from "dotenv";
 dotenv.config();
@@ -50,7 +51,6 @@ const handleCreateContainer = async (request, response) => {
             fs.mkdirSync(userPath, { recursive: true });
         }
 
-
         // return response.json({
         //   "error": "Path not exists"
         // });
@@ -81,7 +81,7 @@ const handleCreateContainer = async (request, response) => {
         // start the container 
         await container.start();
 
-        return response.json({ container });
+        return response.json({ "container": container.id, "user_dir": userPath });
 
     } catch (error) {
         return response.json({
@@ -91,12 +91,12 @@ const handleCreateContainer = async (request, response) => {
     }
 }
 
-const handleDeleteContainer =  async (request, response) => {
+const handleDeleteContainer = async (request, response) => {
     try {
         // first fetch all the ids of all the container ro delete 
         const container_Id = request.body.containerId;
         const containers = await docker.listContainers();
-        
+
         // stop the container
         docker.getContainer(container_Id).stop();
         // const containers_ids = [];
@@ -119,7 +119,7 @@ const handleDeleteContainer =  async (request, response) => {
     }
 }
 
-const handleExecuteCommands =  async (request, response) => {
+const handleExecuteCommands = async (request, response) => {
     try {
         const { containerId, command } = request.body;
 
@@ -163,4 +163,9 @@ const handleExecuteCommands =  async (request, response) => {
     }
 }
 
-export { handleGetContainer, handleCreateContainer, handleDeleteContainer, handleExecuteCommands };
+export {
+    handleGetContainer,
+    handleCreateContainer,
+    handleDeleteContainer,
+    handleExecuteCommands
+};

@@ -24,10 +24,14 @@ connectToMongoDB();
 
 // ROUTES
 import auth from "./routes/auth/auth.js"
+import files from "./routes/files/user-file.js"
+import docker_route from "./docker/index.js"
 import testCode from "./testing/index.js";
 
 // build apis
 app.use("/api/auth",auth);
+app.use("/api/files",files);
+app.use("/api/docker",docker_route);
 
 // testing apis 
 app.use("/api/test-verify",testCode);

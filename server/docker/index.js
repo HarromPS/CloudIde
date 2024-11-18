@@ -4,7 +4,7 @@ import {
     handleCreateContainer, 
     handleDeleteContainer,
     handleExecuteCommands
-} from "../controllers/docker-controller";
+} from "../controllers/docker-controller.js";
 const router = express.Router();
 
 // list all the containers running with async function
@@ -14,7 +14,7 @@ router.get("/containers",handleGetContainer);
 router.post("/create-container", handleCreateContainer);
 
 // delete all containers 
-router.post("/delete-containers", handleDeleteContainer);
+router.delete("/delete-container", handleDeleteContainer);
 
 
 // execute commands
