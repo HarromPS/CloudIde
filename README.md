@@ -25,7 +25,6 @@ This project provides a modern, developer-centric cloud IDE that allows users to
 - **Execution Environment**: Docker containers for code isolation
 - **Database**: MongoDB (for storing user projects & metadata)
 - **Authentication**: JWT & OAuth (Google/GitHub login optional)
-- **Hosting/Cloud**: AWS/GCP/Render (configurable)
 
 ## 📐 System Architecture
 
@@ -38,19 +37,6 @@ The system follows a client-server architecture with modular microservices:
 - Authentication Service
 
 Each component communicates over REST or WebSocket protocols.
-
-## 🧪 Testing
-
-- Unit Testing (Jest + React Testing Library)
-- Integration Testing (Postman + Mocha)
-- Manual Testing on multiple devices and screen sizes
-
-## 🔒 Security Considerations
-
-- Execution in isolated Docker containers
-- Input sanitization and output control
-- Secure JWT-based session handling
-- HTTPS enforced for all communications
 
 ## 📁 Folder Structure
 
@@ -86,7 +72,3 @@ README.md
 - [React](https://reactjs.org/)
 - [OpenAI](https://openai.com/) (assistance for document structure and content)
 ```
-
----
-
-Let me know if you’d like the README formatted for a specific deployment (e.g., Docker Hub, AWS setup, educational use, etc.), or if you need a `CONTRIBUTING.md` or `docker-compose.yml` to go with it!
