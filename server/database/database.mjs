@@ -20,9 +20,11 @@ const options = {
 const connectToMongoDB = async () => {
     try {
         mongoose.set("strictQuery", false);
-        mongoose.connect(uri2);
-        console.log("Connected to mongodb successfully");
-    }
+        mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+        .then(() => console.log('Connected to MongoDB via Mongoose!'))
+        .catch(err => console.error(err));
+                console.log("Connected to mongodb successfully");
+            }
     catch (err) {
         console.log(err);
     }
