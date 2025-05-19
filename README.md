@@ -4,7 +4,7 @@ A **Cloud IDE (Integrated Development Environment)** designed for developers who
 
 ---
 Youtube Video Presentation
-[![Collegepredictionchatbot__Dashboards](./cloud_ide.gif)](https://youtu.be/38FPKqS5gmk?feature=shared)
+[![Collegepredictionchatbot__Dashboards](https://github.com/user-attachments/assets/3e058efa-76d5-4f8c-9fa7-258dfe547832)](https://youtu.be/38FPKqS5gmk?feature=shared)
 ---
 
 ## 🚀 Project Overview
